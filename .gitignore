@@ -1,1 +1,15 @@
+# python notebook checkpoints
 .ipynb_checkpoints/*
+
+# virtual environment
+env
+env/*
+
+# API keys, etc
+secrets/*
+secrets.*
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
