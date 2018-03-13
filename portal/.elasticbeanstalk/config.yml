@@ -1,12 +1,12 @@
 branch-defaults:
   default:
-    environment: portal-env
+    environment: portal-dev
     group_suffix: null
 global:
   application_name: portal
   branch: null
   default_ec2_keyname: comp680 csun
-  default_platform: Python 2.7
+  default_platform: Python 3.6
   default_region: us-west-1
   include_git_submodules: true
   instance_profile: null
