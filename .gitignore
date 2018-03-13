@@ -1,6 +1,9 @@
 # python notebook checkpoints
 .ipynb_checkpoints/*
 
+# pyc file
+*.pyc
+
 # virtual environment
 env
 env/*
