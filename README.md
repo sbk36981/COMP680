@@ -24,23 +24,35 @@ Our first sprint is intended to cover the following:
 ## Installation instructions: Customer Portal
 ### Linux
 First, clone the repo in a location of your choice.
+
 `$ git clone https://github.com/sbk36981/COMP680.git`
+
 Enter the directory.
+
 `$ cd COMP680`
 
 If you don't have virtualenv installed, install it with:
+
 `$ pip install virtualenv`
+
 Then, create yourself a virtual environment and activate it.
+
 `$ virtualenv env`
 `$ source env/bin/activate`
+
 Install the dependencies via pip.
+
 `(env) $ pip install -r requirements.txt`
 
-Before running the server, you'll need to generate a *secrets.py* file that has value for [SECRET_KEY][https://docs.djangoproject.com/en/2.0/ref/settings/#std:setting-SECRET_KEY "SECRET KEY"]. File should be in the same directory as manage.py. Contents will be something like this, see the Django documentation for how to generate a secret key.
+Before running the server, you'll need to generate a *secrets.py* file that has value for [SECRET_KEY](https://docs.djangoproject.com/en/2.0/ref/settings/#std:setting-SECRET_KEY "SECRET KEY"). 
+File should be in the same directory as manage.py. Contents will be something like this, see the Django documentation for how to generate a secret key.
+
 `SECRET_KEY = 'random-50-character-string'`
+
 **BE AWARE THAT YOU SHOULD NEVER COMMIT YOUR SECRET KEY TO VERSION CONTROL OR OTHERWISE EXPOSE IT. READ THE OFFICIAL DOCUMENTATION.**
 
 After that's filled out, you can run the development server like so, which will open it on localhost:8000.
+
 `(env) $ python manage.py runserver`
 
 You can open the customer portal by visiting localhost:8000/customerportal.
