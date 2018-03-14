@@ -1,0 +1,9 @@
+{% if latest_houses_list %}
+    <ul>
+    {% for house in latest_houses_list%}
+        <li><a href="/customerportal/{{ house.id }}/">{{ house.house_name}}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No houses are available.</p>
+{% endif %}

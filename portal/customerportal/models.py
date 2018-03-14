@@ -7,6 +7,6 @@ from django.db import models
 class House(models.Model):
     house_name = models.CharField(max_length=200)
     request_date = models.DateTimeField('date published')
-    csv_data = models.TextField()
-    predicted_price = models.DecimalField(max_digits=20, decimal_places=20)
-    actual_price = models.DecimalField(max_digits=20, decimal_places=20)
+    csv_data = models.TextField(blank=True)
+    predicted_price = models.FloatField(null=True, blank=True)
+    actual_price = models.FloatField(null=True, blank=True)

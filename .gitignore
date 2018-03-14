@@ -4,6 +4,8 @@
 # pyc file
 *.pyc
 
+portal/*/migrations/*
+
 # virtual environment
 env
 env/*
