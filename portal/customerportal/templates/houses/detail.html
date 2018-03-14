@@ -1,0 +1,12 @@
+<h1>{{ house.house_name }}</h1>
+<ul>
+	<li>Request Date: {{ house.request_date}}</li>
+	<li>Predicted Price: {{ house.predicted_price}}</li>
+	<li>Actual Price: {{ house.actual_price}}</li>
+	<li>CSV Data: {{ house.csv_data}}</li>
+</ul>
+<hr>
+<form action="{% url 'customerportal:prediction' house.id %}" method="post">
+	{% csrf_token %}
+	<input type="submit" value="prediction" />
+</form>
