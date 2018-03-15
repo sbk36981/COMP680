@@ -6,7 +6,7 @@
 	<li>CSV Data: {{ house.csv_data}}</li>
 </ul>
 <hr>
-<form action="{% url 'customerportal:prediction' house.id %}" method="post">
+<form action="{% url 'cusportal:prediction' house.id %}" method="post">
 	{% csrf_token %}
 	<input type="submit" value="prediction" />
 </form>
