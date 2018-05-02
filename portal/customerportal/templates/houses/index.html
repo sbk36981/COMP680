@@ -1,9 +1,28 @@
+{% extends 'houses/base.html' %}
+{% block content %}
+<div style="border:none;" class="house-block-wrapper">
 {% if latest_houses_list %}
-    <ul>
     {% for house in latest_houses_list%}
-        <li><a href="/customerportal/{{ house.id }}/">{{ house.house_name}}</a></li>
+    <div class="house_block available">
+          <div class="house_info">
+            <p class="house_name">{{ house.house_name }}</p>
+            <p class="subclass">{{ house.get_mssubclass_display}}</p>
+            <p class="predicted_price"><strong>Predicted Price:</strong>{{ house.predicted_price}}</p>
+            <p class="actual_price"><strong>Actual Price:</strong>{{ house.actual_price}}</p>
+            <p><strong>Overall Quality:</strong>{{ house.overall_quality }}</p>
+            <p><strong>Year built:</strong>{{ house.year_built }}</p>
+            <p><strong>Year remodeled:</strong>{{ house.year_remodeled }}</p>
+            <p><strong>Above ground living area:</strong>{{ house.above_ground_living_sf }}</p>
+
+            <p class="details_link"><a href="/customerportal/{{ house.id }}/">Details</a></p>
+        </div>
+    
+    </div>
     {% endfor %}
-    </ul>
 {% else %}
     <p>No houses are available.</p>
 {% endif %}
+</div>
+<div class="fixed-action-btn"><a href="/customerportal/add" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a></div>
+
+{% endblock %}

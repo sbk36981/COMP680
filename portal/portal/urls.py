@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url, include 
 from django.urls import path
-
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib import admin
 
 urlpatterns = [
@@ -28,3 +28,6 @@ urlpatterns = [
 urlpatterns += [
     path('accounts/', include('django.contrib.auth.urls')),
 ]
+
+#Let django serve requests for static files
+urlpatterns += staticfiles_urlpatterns()

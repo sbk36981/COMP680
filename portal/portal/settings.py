@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'import_export'
 ]
 
 MIDDLEWARE = [
@@ -127,3 +128,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = 'static'
+LOGIN_REDIRECT_URL = ('/customerportal/')

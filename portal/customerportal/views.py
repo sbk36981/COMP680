@@ -4,12 +4,13 @@ from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
-import requests, json
+import requests, json, datetime
 from django.conf import settings
 
 # Create your views here.
 
 from .models import House
+from .forms import HouseForm
 
 @login_required
 def index(request):
@@ -39,3 +40,17 @@ def prediction(request, house_id):
         return HttpResponseRedirect(reverse('cusportal:housedetail', args=[house.id]))
     house.save()
     return HttpResponseRedirect(reverse('cusportal:housedetail', args=[house.id]))
+
+@login_required
+def add_house(request):
+    if request.method  == 'POST':
+        form = HouseForm(request.POST)
+        form.request_date = datetime.date.today()
+        
+        # Check if form is valid
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('cusportal:index'))
+    else:
+        form = HouseForm()
+    return render(request, "houses/add.html", {"form": form})

@@ -1,0 +1,28 @@
+{% load static %}
+<html>
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="{% static "customerportal/materialize/css/materialize.min.css" %}"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="{% static "customerportal/materialize/css/cdeluca.css" %}"  media="screen,projection"/>
+    <link rel="icon" href="{% static "customerportal/favicon.png" %}">
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper">
+          <a href="/customerportal/" class="brand-logo"><img src="{% static "customerportal/favicon.png" %}"></a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="/customerportal/">House List</a></li>
+          </ul>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="/admin/logout/">Log Out</a></li>
+          </ul>
+        </div>
+    </nav>
+
+    {% block content %}
+    {% endblock %}
+
+    <script type="text/javascript" src="{% static "customerportal/materialize/js/materialize.min.js" %}"></script>
+</body>

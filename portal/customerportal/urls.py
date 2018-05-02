@@ -6,5 +6,6 @@ app_name = 'cusportal'
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     path('<int:house_id>/', views.housedetail, name="housedetail"),
-    path('<int:house_id>/prediction', views.prediction, name="prediction")
+    path('<int:house_id>/prediction', views.prediction, name="prediction"),
+    path('add/', views.add_house, name="add")
 ]

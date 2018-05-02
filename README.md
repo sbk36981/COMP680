@@ -2,6 +2,8 @@
 ## Housing Data Prediction
 This repo is intended to be an example of a data pipeline, with a customer-facing portal to give them the ability to submit jobs and data. Specifically, it is intended to make predictions on housing prices.
 
+The site is currently hosted at comp680.eidolog.com.
+
 ### Sprint 1
 Our first sprint is intended to cover the following:
 * Business goal: Identify and define features relevant to the price prediction
