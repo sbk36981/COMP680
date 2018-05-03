@@ -6,6 +6,7 @@ from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 import requests, json, datetime
 from django.conf import settings
+from math import exp
 
 # Create your views here.
 
@@ -21,7 +22,8 @@ def index(request):
 @login_required
 def housedetail(request, house_id):
     house = get_object_or_404(House, pk=house_id)
-    return render(request, "houses/detail.html", {'house' : house})
+    form = HouseForm(instance=house)
+    return render(request, "houses/detail.html", {'form' : form})
 
 @login_required
 def prediction(request, house_id):
@@ -35,7 +37,7 @@ def prediction(request, house_id):
     }
     r = requests.post(endpoint, headers=headers, data=payload)
     try:
-        house.predicted_price = json.loads(r.content)["predictions"][0]["score"]
+        house.predicted_price = exp(json.loads(r.content)["predictions"][0]["score"])
     except KeyError:
         return HttpResponseRedirect(reverse('cusportal:housedetail', args=[house.id]))
     house.save()
@@ -46,7 +48,7 @@ def add_house(request):
     if request.method  == 'POST':
         form = HouseForm(request.POST)
         form.request_date = datetime.date.today()
-        
+
         # Check if form is valid
         if form.is_valid():
             form.save()

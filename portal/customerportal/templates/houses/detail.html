@@ -1,15 +1,16 @@
 {% extends 'houses/base.html' %}
 {% block content %}
 
-<h1>{{ house.house_name }}</h1>
-<ul>
-	<li>Request Date: {{ house.request_date}}</li>
-	<li>Predicted Price: {{ house.predicted_price}}</li>
-	<li>Actual Price: {{ house.actual_price}}</li>
-	<li>CSV Data: {{ house.csv_data}}</li>
-</ul>
+<table>
+	{% for field in form %}
+		<tr>
+			<td>{{ field.name }}</td>
+			<td>{{ field.value }}</td>
+		</tr>
+	{% endfor %}
+</table>
 <hr>
-<form action="{% url 'cusportal:prediction' house.id %}" method="post">
+<form action="{% url 'cusportal:prediction' form.instance.id %}" method="post">
 	{% csrf_token %}
 	<button class"btn waves-effect waves-light" type="submit" name="action">Predict Price<i class="material-icons right">send</i></button>
 </form>
