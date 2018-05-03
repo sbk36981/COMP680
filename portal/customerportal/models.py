@@ -8,7 +8,7 @@ from django.forms import ModelForm
 # Create your models here.
 class House(models.Model):
     house_name = models.CharField("House Name", max_length=200)
-    request_date = models.DateTimeField("Date Published")
+    request_date = models.DateTimeField("Date Published", null=True, blank=True)
     csv_data = models.TextField("Raw CSV Data", blank=True)
     predicted_price = models.FloatField("Predicted Price", null=True, blank=True)
     actual_price = models.FloatField("Actual Price", null=True, blank=True)
